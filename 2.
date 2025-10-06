@@ -1,0 +1,38 @@
+
+//Constructor Overloading Code-2 
+#include <iostream>
+using namespace std;
+class Temperature {
+    float celsius;
+public:
+    Temperature() {
+        celsius = 0.0;  // Default
+    }
+    Temperature(float c) {
+        celsius = c;    // User input
+    }
+    Temperature(const Temperature &t) {
+        celsius = t.celsius;  // Copy constructor
+    }
+    void display() {
+        float fahrenheit = (celsius * 9/5) + 32;
+        cout << "Celsius: " << celsius << "°C, "
+             << "Fahrenheit: " << fahrenheit << "°F" << endl;
+    }
+};
+int main() {
+    Temperature t1;         // Default → 0°C
+    Temperature t2(37.5);   // Parameterized → 37.5°C
+    Temperature t3(t2);     // Copied → 37.5°C
+    t1.display();
+    t2.display();
+    t3.display();
+    return 0;
+}
+
+/*
+Output:
+Celsius: 0°C, Fahrenheit: 32°F
+Celsius: 37.5°C, Fahrenheit: 99.5°F
+Celsius: 37.5°C, Fahrenheit: 99.5°F
+*/

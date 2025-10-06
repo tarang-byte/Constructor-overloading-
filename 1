@@ -1,0 +1,36 @@
+
+//div:-B3
+//Constructor Overloading Code-1 
+#include <iostream>
+using namespace std;
+class Number {
+    int value;
+public:
+    Number() {
+        value = 100;  // Default value
+    }
+    Number(int x) {
+        value = x;    
+    }
+    Number(Number &n) {
+        value = n.value + 1;  // Copy constructor alters the value
+    }
+    void show() {
+        cout << "Value: " << value << endl;
+    }
+};
+int main() {
+    Number n1;         // Default constructor → 100
+    Number n2(50);     // Parameterized → 50
+    Number n3(n1);     // Copy constructor → 101 (100 + 1)
+    n1.show();
+    n2.show();
+    n3.show();
+    return 0;
+}
+/*
+Output:
+Value: 100
+Value: 50
+Value: 101
+*/
